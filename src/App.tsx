@@ -4,15 +4,23 @@ import "./App.css";
 import { useClickOutside } from "./useClickOutside";
 
 const App = () => {
-  const { onStartListeningClickOutside } = useClickOutside();
+  const {
+    onStartListeningClickOutside,
+    onClickOutside,
+    waitingOnClickOutside,
+  } = useClickOutside();
 
   return (
     <div className="App">
       <TestComponent clicked={onStartListeningClickOutside} />
-      <div
-        style={{ minHeight: "100vh", background: "#347643" }}
-        className="frontPage"
-      ></div>
+      <ul>
+        <li>Dog</li>
+        <li>Cat</li>
+        <li>Hamster</li>
+        <li>Parrot</li>
+        <li>Spider</li>
+        <li>Goldfish</li>
+      </ul>
     </div>
   );
 };
