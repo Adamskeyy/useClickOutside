@@ -1,4 +1,7 @@
+// interfaces
 import { AnimalProps } from "../Animal/index";
+// styles
+import "./AnimalSelect.css";
 
 interface Props {
   clicked: () => void;
@@ -7,17 +10,24 @@ interface Props {
 
 const AnimalSelect = ({ clicked, animalOptions }: Props) => {
   return (
-    <>
-      <label htmlFor="animal-select">Choose a pet:</label>
-      <select onClick={clicked} name="animals" id="animal-select">
-        <option value="">--Please choose an option--</option>
-        {animalOptions.map((animal) => (
-          <option key={animal.id} value={animal.name}>
-            {animal.name}
-          </option>
-        ))}
-      </select>
-    </>
+    // przekazać value do clicked: event.target.value
+    <select
+      onChange={clicked}
+      name="animals"
+      id="animal-select"
+      className="animalSelect"
+    >
+      <option value="">--Please choose an option--</option>
+      {animalOptions.map((animal) => (
+        <option
+          className="animalSelect__option"
+          key={animal.id}
+          value={animal.name}
+        >
+          {animal.name}
+        </option>
+      ))}
+    </select>
   );
 };
 
