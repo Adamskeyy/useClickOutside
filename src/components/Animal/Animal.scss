@@ -1,4 +1,15 @@
 .animalList__item {
   font-size: 1.2rem;
-  padding: 0.5rem 0;
+  padding: 0.5rem 4.5rem;
+  margin: 0.2rem 0;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  width: 100%;
+  text-align: center;
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(24, 3, 117);
+    color: #fff;
+  }
 }
