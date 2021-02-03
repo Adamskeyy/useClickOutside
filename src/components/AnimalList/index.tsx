@@ -1,15 +1,16 @@
-import React from "react";
+import { AnimalProps } from "../Animal/index";
 
 interface Props {
   clicked: () => void;
+  animalOptions: AnimalProps[];
 }
 
-const TestComponent = ({ clicked }: Props) => {
+const AnimalList = ({ clicked, animalOptions }: Props) => {
   // Dać selecta/dropdown
   return (
     <>
-      <label htmlFor="pet-select">Choose a pet:</label>
-      <select onClick={clicked} name="pets" id="pet-select">
+      <label htmlFor="animal-select">Choose a pet:</label>
+      <select onClick={clicked} name="animals" id="animal-select">
         <option value="">--Please choose an option--</option>
         <option value="dog">Dog</option>
         <option value="cat">Cat</option>
@@ -22,4 +23,4 @@ const TestComponent = ({ clicked }: Props) => {
   );
 };
 
-export default TestComponent;
+export default AnimalList;

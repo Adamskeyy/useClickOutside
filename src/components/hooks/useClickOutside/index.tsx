@@ -1,17 +1,22 @@
 // Stwórz hooka useClickOutside, który bedzie działać np z customowymi
 // componentami typu dropdown lub select:
 
-interface Props {
-  onStartListeningClickOutside: (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => void;
-  waitingOnClickOutside: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onClickOutside: (event: React.MouseEvent<HTMLButtonElement>) => void;
-}
+// interface Props {
+//   onStartListeningClickOutside: (
+//     event: React.MouseEvent<HTMLButtonElement>
+//   ) => void;
+//   waitingOnClickOutside: (event: React.MouseEvent<HTMLButtonElement>) => void;
+//   onClickOutside: (event: React.MouseEvent<HTMLButtonElement>) => void;
+// }
 
 export const useClickOutside = () => {
   const onStartListeningClickOutside = () => {
     console.log("mlem");
+    // return (
+    //   // <div style={{ zIndex: "500" }}>
+    //   //   <Component />
+    //   // </div>
+    // );
   };
   const waitingOnClickOutside = () => {
     return "mlep";
