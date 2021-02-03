@@ -1,25 +1,24 @@
+import React from "react";
+// interfaces
 import { AnimalProps } from "../Animal/index";
+// components
+import Animal from "../Animal";
+// styles
+import "./AnimalList.css";
 
 interface Props {
-  clicked: () => void;
   animalOptions: AnimalProps[];
 }
 
-const AnimalList = ({ clicked, animalOptions }: Props) => {
-  // Dać selecta/dropdown
+const AnimalList = ({ animalOptions }: Props) => {
   return (
-    <>
-      <label htmlFor="animal-select">Choose a pet:</label>
-      <select onClick={clicked} name="animals" id="animal-select">
-        <option value="">--Please choose an option--</option>
-        <option value="dog">Dog</option>
-        <option value="cat">Cat</option>
-        <option value="hamster">Hamster</option>
-        <option value="parrot">Parrot</option>
-        <option value="spider">Spider</option>
-        <option value="goldfish">Goldfish</option>
-      </select>
-    </>
+    <ul className="animalList">
+      {animalOptions.map((animal) => (
+        <React.Fragment key={animal.id}>
+          <Animal id={animal.id} name={animal.name} />
+        </React.Fragment>
+      ))}
+    </ul>
   );
 };
 

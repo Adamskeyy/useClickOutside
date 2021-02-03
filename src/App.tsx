@@ -1,4 +1,5 @@
 import AnimalList from "./components/AnimalList";
+import AnimalSelect from "./components/AnimalSelect";
 import "./App.css";
 
 import { useClickOutside } from "./components/hooks/useClickOutside";
@@ -27,15 +28,11 @@ const App = () => {
   return (
     <div className="App">
       {/* on select give chosen option super powers (biggest z-index and backdrop, return to normal if backdrop clicked) */}
-      <AnimalList
+      <AnimalSelect
         animalOptions={ANIMALS}
         clicked={onStartListeningClickOutside}
       />
-      <ul>
-        {ANIMALS.map((option, index) => (
-          <li key={index}>{option}</li>
-        ))}
-      </ul>
+      <AnimalList animalOptions={ANIMALS} />
     </div>
   );
 };
