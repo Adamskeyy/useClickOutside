@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // interfaces
 import { AnimalProps } from "../Animal/index";
 // components

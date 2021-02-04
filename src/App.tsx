@@ -8,8 +8,6 @@ import "./App.css";
 import { useClickOutside } from "./components/hooks/useClickOutside";
 import { useState } from "react";
 
-// <S>, <T> - generics
-
 const ANIMALS = [
   { id: 1, name: "Dog" },
   { id: 2, name: "Cat" },
@@ -42,7 +40,7 @@ const App = () => {
         clicked={
           (event: React.ChangeEvent<{ value: string }>) => {
             setSelectedValue(event.target.value);
-            setShowBackdrop(true);
+            setShowBackdrop(event.target.value ? true : false);
           }
 
           // console.log(event.target.value)
