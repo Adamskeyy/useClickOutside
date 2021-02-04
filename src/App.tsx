@@ -31,16 +31,24 @@ const App = () => {
 
   return (
     <div className="App">
-      {/* on select give chosen option super powers (biggest z-index and backdrop, return to normal if backdrop clicked) */}
       <Backdrop
         show={showBackdrop}
-        clicked={() => setShowBackdrop((prev) => !prev)}
+        onClickOutside={() =>
+          setShowBackdrop((prev) => waitingOnClickOutside(!prev))
+        }
       />
       <AnimalSelect
         animalOptions={ANIMALS}
-        clicked={onStartListeningClickOutside}
+        clicked={
+          (event: React.ChangeEvent<{ value: string }>) => {
+            setSelectedValue(event.target.value);
+            setShowBackdrop(true);
+          }
+
+          // console.log(event.target.value)
+        }
       />
-      <AnimalList animalOptions={ANIMALS} />
+      <AnimalList selectedValue={selectedValue} animalOptions={ANIMALS} />
     </div>
   );
 };

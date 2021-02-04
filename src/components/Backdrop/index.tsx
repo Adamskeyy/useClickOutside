@@ -3,10 +3,10 @@ import "./Backdrop.css";
 
 export interface BackdropProps {
   show: boolean;
-  clicked: () => void;
+  onClickOutside: () => void;
 }
 
-const Backdrop = ({ show, clicked }: BackdropProps) =>
-  show ? <div className="backdrop" onClick={clicked}></div> : null;
+const Backdrop = ({ show, onClickOutside }: BackdropProps) =>
+  show ? <div className="backdrop" onClick={onClickOutside}></div> : null;
 
 export default Backdrop;

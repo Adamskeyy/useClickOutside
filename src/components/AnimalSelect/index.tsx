@@ -1,16 +1,17 @@
+// tools
+import React from "react";
 // interfaces
 import { AnimalProps } from "../Animal/";
 // styles
 import "./AnimalSelect.css";
 
 interface Props {
-  clicked: () => void;
+  clicked: any;
   animalOptions: AnimalProps[];
 }
 
 const AnimalSelect = ({ clicked, animalOptions }: Props) => {
   return (
-    // przekazać value do clicked: event.target.value
     <select
       onChange={clicked}
       name="animals"

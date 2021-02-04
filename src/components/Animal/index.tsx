@@ -2,13 +2,14 @@
 import "./Animal.css";
 
 export interface AnimalProps {
+  selectedStyle?: any;
   id: number;
   name: string;
 }
 
-const Animal = ({ id, name }: AnimalProps) => {
+const Animal = ({ selectedStyle, id, name }: AnimalProps) => {
   return (
-    <li className="animalList__item" key={id}>
+    <li style={selectedStyle} className="animalList__item" key={id}>
       {name}
     </li>
   );

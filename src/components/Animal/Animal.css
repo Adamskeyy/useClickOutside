@@ -6,6 +6,7 @@
   border-radius: 0.5rem;
   width: 100%;
   text-align: center;
+  background-color: #fff;
 }
 
 .animalList__item:hover {
