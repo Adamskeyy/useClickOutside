@@ -1,7 +1,10 @@
+// components
 import AnimalList from "./components/AnimalList";
 import AnimalSelect from "./components/AnimalSelect";
+import Backdrop from "./components/Backdrop";
+// styles
 import "./App.css";
-
+// tools
 import { useClickOutside } from "./components/hooks/useClickOutside";
 import { useState } from "react";
 
@@ -24,10 +27,15 @@ const App = () => {
   } = useClickOutside();
 
   const [selectedValue, setSelectedValue] = useState<string>("");
+  const [showBackdrop, setShowBackdrop] = useState<boolean>(false);
 
   return (
     <div className="App">
       {/* on select give chosen option super powers (biggest z-index and backdrop, return to normal if backdrop clicked) */}
+      <Backdrop
+        show={showBackdrop}
+        clicked={() => setShowBackdrop((prev) => !prev)}
+      />
       <AnimalSelect
         animalOptions={ANIMALS}
         clicked={onStartListeningClickOutside}

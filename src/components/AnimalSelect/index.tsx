@@ -1,5 +1,5 @@
 // interfaces
-import { AnimalProps } from "../Animal/index";
+import { AnimalProps } from "../Animal/";
 // styles
 import "./AnimalSelect.css";
 

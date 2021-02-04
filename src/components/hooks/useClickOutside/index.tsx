@@ -19,7 +19,8 @@ export const useClickOutside = () => {
     // );
   };
   const waitingOnClickOutside = () => {
-    return "mlep";
+    // jeśli wywołano onStartListeningClickOutside to zwróć true
+    return true;
   };
   const onClickOutside = () => {
     return "blep";
