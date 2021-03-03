@@ -6,7 +6,7 @@ import Backdrop from "./components/Backdrop";
 import "./App.css";
 // tools
 import { useClickOutside } from "./hooks/useClickOutside";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 const ANIMALS = [
   { id: 1, name: "Dog" },
@@ -25,21 +25,20 @@ const App = () => {
   } = useClickOutside();
 
   const [selectedValue, setSelectedValue] = useState<string>("");
-  const [showBackdrop, setShowBackdrop] = useState<boolean>(false);
+  const isBackdropOpen = useMemo(() => waitingOnClickOutside(), [
+    waitingOnClickOutside,
+  ]);
+  // const [showBackdrop, setShowBackdrop] = useState<boolean>(false);
 
   return (
     <div className="App">
-      <Backdrop
-        show={showBackdrop}
-        onClickOutside={() =>
-          setShowBackdrop((prev) => waitingOnClickOutside(!prev))
-        }
-      />
+      <Backdrop show={isBackdropOpen} onClickOutside={onClickOutside} />
       <AnimalSelect
         animalOptions={ANIMALS}
         clicked={(event: React.ChangeEvent<{ value: string }>) => {
           setSelectedValue(event.target.value);
-          setShowBackdrop(event.target.value ? true : false);
+          onStartListeningClickOutside();
+          console.log(isBackdropOpen);
         }}
       />
       <AnimalList selectedValue={selectedValue} animalOptions={ANIMALS} />

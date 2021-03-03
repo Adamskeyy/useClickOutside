@@ -8,13 +8,14 @@ export const useClickOutside = () => {
   const [listening, setListening] = useState<boolean>(false);
 
   const onStartListeningClickOutside = useCallback(() => {
-    const style = { zIndex: 1000 };
+    // const style = { zIndex: 1000 };
     setListening(true);
-    return style;
+    // if listening className = "withZIndex"
+    // return style;
   }, []);
-  const waitingOnClickOutside = (listening: boolean) => {
+  const waitingOnClickOutside = useCallback(() => {
     return listening;
-  };
+  }, [listening]);
   const onClickOutside = useCallback(() => {
     setListening(false);
   }, []);
