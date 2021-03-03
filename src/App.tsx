@@ -5,7 +5,7 @@ import Backdrop from "./components/Backdrop";
 // styles
 import "./App.css";
 // tools
-import { useClickOutside } from "./components/hooks/useClickOutside";
+import { useClickOutside } from "./hooks/useClickOutside";
 import { useState } from "react";
 
 const ANIMALS = [
@@ -37,14 +37,10 @@ const App = () => {
       />
       <AnimalSelect
         animalOptions={ANIMALS}
-        clicked={
-          (event: React.ChangeEvent<{ value: string }>) => {
-            setSelectedValue(event.target.value);
-            setShowBackdrop(event.target.value ? true : false);
-          }
-
-          // console.log(event.target.value)
-        }
+        clicked={(event: React.ChangeEvent<{ value: string }>) => {
+          setSelectedValue(event.target.value);
+          setShowBackdrop(event.target.value ? true : false);
+        }}
       />
       <AnimalList selectedValue={selectedValue} animalOptions={ANIMALS} />
     </div>

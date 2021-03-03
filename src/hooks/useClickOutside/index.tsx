@@ -1,5 +1,5 @@
 // tools
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 // Stwórz hooka useClickOutside, który bedzie działać np z customowymi
 // componentami typu dropdown lub select:
@@ -7,17 +7,17 @@ import { useState } from "react";
 export const useClickOutside = () => {
   const [listening, setListening] = useState<boolean>(false);
 
-  const onStartListeningClickOutside = () => {
+  const onStartListeningClickOutside = useCallback(() => {
     const style = { zIndex: 1000 };
     setListening(true);
     return style;
-  };
+  }, []);
   const waitingOnClickOutside = (listening: boolean) => {
     return listening;
   };
-  const onClickOutside = () => {
+  const onClickOutside = useCallback(() => {
     setListening(false);
-  };
+  }, []);
   return {
     onStartListeningClickOutside,
     waitingOnClickOutside,

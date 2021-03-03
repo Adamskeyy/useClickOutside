@@ -6,7 +6,7 @@ import Animal from "../Animal";
 // styles
 import "./AnimalList.css";
 // tools
-import { useClickOutside } from "../hooks/useClickOutside";
+import { useClickOutside } from "../../hooks/useClickOutside";
 
 interface Props {
   selectedValue: string;
